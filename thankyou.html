@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grazie! | DROP</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .thankyou-container {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 60px 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            max-width: 600px;
+            position: relative;
+            z-index: 10;
+        }
+        .ty-logo {
+            height: 120px;
+            margin-bottom: 30px;
+            filter: brightness(0);
+        }
+        .ty-title {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+        .ty-text {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.6;
+            font-family: var(--font-body);
+        }
+        .btn-home {
+            background: var(--brand-lilac);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(227, 154, 255, 0.4);
+        }
+        
+        /* Floating Blobs for Thank You page */
+        .blob { animation-duration: 15s; }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2" style="background: rgba(227, 154, 255, 0.4); right: auto; left: -10vw;"></div>
+    <div class="blob" style="width: 30vw; height: 30vw; background: rgba(255, 227, 154, 0.4); bottom: -10vw; right: 20vw; animation-delay: -5s;"></div>
+
+    <div class="thankyou-container">
+        <img src="asset/img/logo drop.png" alt="DROP Logo" class="ty-logo">
+        <h1 class="ty-title">Ordine Confermato!</h1>
+        <p class="ty-text">
+            Grazie per aver scelto DROP. <br><br>
+            Il tuo pacco emozionale è stato preso in carico ed è pronto per iniziare il suo viaggio verso di te.
+            A breve riceverai un'email con il tracking della spedizione.
+        </p>
+        <a href="index.html" class="btn-home">Torna alla Home</a>
+    </div>
+</body>
+</html>

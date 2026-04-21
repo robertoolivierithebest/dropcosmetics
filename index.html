@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Scopri la nuova linea di lip gloss DROP, ispirata alle emozioni. Trova il gloss perfetto per esprimere chi sei oggi.">
+    <title>DROP | Your Emotions, Your Gloss</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <header class="glass-header">
+        <div class="container nav-container">
+            <a href="#" class="logo-link"><img src="asset/img/logo drop.png" alt="DROP Logo" class="logo-img"></a>
+            <nav class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="#hero">Concept</a></li>
+                    <li><a href="#about">Vision</a></li>
+                    <li><a href="#products">Gloss</a></li>
+                </ul>
+                <button id="cart-btn" class="cart-btn">
+                    🛒 <span id="cart-counter" class="cart-counter">0</span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <div class="container hero-content">
+                <span class="hero-badge">New Collection</span>
+                <h2 class="hero-title">Embrace every <span class="text-gradient">Mood.</span></h2>
+                <p class="hero-subtitle">La prima linea di lip gloss che non copre chi sei, ma lo esalta. Perché non devi essere perfetta, devi essere tu.</p>
+                <a href="#products" class="btn-primary">Scopri le Emozioni</a>
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <div class="container about-container">
+                <div class="about-card">
+                    <div class="about-icon">✨</div>
+                    <h2 class="about-title">Vision</h2>
+                    <h3 class="about-subtitle">"Emotional Hydration"</h3>
+                    <p>Celebrare l'instabilità emotiva come forma di bellezza, trasformando il make-up in un rituale di consapevolezza.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">💧</div>
+                    <h2 class="about-title">Mission</h2>
+                    <h3 class="about-subtitle">Colore & Empatia</h3>
+                    <p>"Trasformare le emozioni in colore attraverso lip gloss con formule innovative e design empatico."</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="products-section">
+            <div class="container">
+                <div class="section-heading">
+                    <h2>I Prodotti</h2>
+                    <p>Scegli la tua vibe.</p>
+                </div>
+                
+                <div class="products-grid">
+                    <!-- Joy -->
+                    <article class="product-card" data-emotion="joy">
+                        <div class="card-inner">
+                            <div class="card-image-wrapper">
+                                <img src="asset/img/1 joy.jpeg" alt="Joy - Shine On Lip Gloss" class="product-img" loading="lazy">
+                                <div class="emotion-tag joy-tag">Joy 😄</div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="product-name">SHINE ON</h3>
+                                <p class="product-claim">"Accendi tutto, a partire da te"</p>
+                                <div class="product-details">
+                                    <div class="detail-item"><strong>Colore:</strong> Trasparente con riflessi dorati luminosi</div>
+                                    <div class="detail-item"><strong>Effetto:</strong> Volumizzante + glow immediato</div>
+                                    <div class="detail-item"><strong>Finish:</strong> Brillante, juicy</div>
+                                    <div class="detail-item"><strong>Attivi:</strong> Leggero effetto rinfrescante (menta soft)</div>
+                                </div>
+                                <div class="product-actions">
+                                    <span class="product-price">€ 19.00</span>
+                                    <button class="add-to-cart-btn" data-id="joy" data-name="SHINE ON" data-price="19.00" data-img="asset/img/1 joy.jpeg">Aggiungi al Carrello</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Sadness -->
+                    <article class="product-card" data-emotion="sadness">
+                        <div class="card-inner">
+                            <div class="card-image-wrapper">
+                                <img src="asset/img/2 sadness.jpeg" alt="Sadness - Soft Cloud Lip Gloss" class="product-img" loading="lazy">
+                                <div class="emotion-tag sadness-tag">Sadness 😢</div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="product-name">SOFT CLOUD</h3>
+                                <p class="product-claim">"Non devi brillare sempre"</p>
+                                <div class="product-details">
+                                    <div class="detail-item"><strong>Colore:</strong> Azzurro latte super sheer (sulle labbra resta trasparente freddo)</div>
+                                    <div class="detail-item"><strong>Effetto:</strong> Ultra idratante, effetto vetro</div>
+                                    <div class="detail-item"><strong>Finish:</strong> Glassy, bagnato</div>
+                                    <div class="detail-item"><strong>Attivi:</strong> Nutrienti, effetto balsamo intensivo</div>
+                                </div>
+                                <div class="product-actions">
+                                    <span class="product-price">€ 19.00</span>
+                                    <button class="add-to-cart-btn" data-id="sadness" data-name="SOFT CLOUD" data-price="19.00" data-img="asset/img/2 sadness.jpeg">Aggiungi al Carrello</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Anger -->
+                    <article class="product-card" data-emotion="anger">
+                        <div class="card-inner">
+                            <div class="card-image-wrapper">
+                                <img src="asset/img/3 anger.jpeg" alt="Anger - Hot Spice Lip Gloss" class="product-img" loading="lazy">
+                                <div class="emotion-tag anger-tag">Anger 😡</div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="product-name">HOT SPICE</h3>
+                                <p class="product-claim">"Fatti sentire. Senza spiegarti."</p>
+                                <div class="product-details">
+                                    <div class="detail-item"><strong>Colore:</strong> Rosso ciliegia intenso</div>
+                                    <div class="detail-item"><strong>Effetto:</strong> Plumping strong (effetto caldo)</div>
+                                    <div class="detail-item"><strong>Finish:</strong> Bold, specchiato</div>
+                                    <div class="detail-item"><strong>Attivi:</strong> Heat effect (piccante)</div>
+                                </div>
+                                <div class="product-actions">
+                                    <span class="product-price">€ 19.00</span>
+                                    <button class="add-to-cart-btn" data-id="anger" data-name="HOT SPICE" data-price="19.00" data-img="asset/img/3 anger.jpeg">Aggiungi al Carrello</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Fear -->
+                    <article class="product-card" data-emotion="fear">
+                        <div class="card-inner">
+                            <div class="card-image-wrapper">
+                                <img src="asset/img/5 fear.jpeg" alt="Fear - Unknown Lip Gloss" class="product-img" loading="lazy">
+                                <div class="emotion-tag fear-tag">Fear 😨</div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="product-name">UNKNOWN</h3>
+                                <p class="product-claim">"Non tutto va controllato"</p>
+                                <div class="product-details">
+                                    <div class="detail-item"><strong>Colore:</strong> Viola trasparente</div>
+                                    <div class="detail-item"><strong>Effetto:</strong> pH-reactive (cambia leggermente su ogni persona)</div>
+                                    <div class="detail-item"><strong>Finish:</strong> Naturale, personalizzato</div>
+                                    <div class="detail-item"><strong>Attivi:</strong> Texture ultra leggera</div>
+                                </div>
+                                <div class="product-actions">
+                                    <span class="product-price">€ 19.00</span>
+                                    <button class="add-to-cart-btn" data-id="fear" data-name="UNKNOWN" data-price="19.00" data-img="asset/img/5 fear.jpeg">Aggiungi al Carrello</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Anxiety -->
+                    <article class="product-card" data-emotion="anxiety">
+                        <div class="card-inner">
+                            <div class="card-image-wrapper">
+                                <img src="asset/img/4 anxiety.jpeg" alt="Anxiety - Calm Down Lip Gloss" class="product-img" loading="lazy">
+                                <div class="emotion-tag anxiety-tag">Anxiety 😰</div>
+                            </div>
+                            <div class="card-content">
+                                <h3 class="product-name">CALM DOWN</h3>
+                                <p class="product-claim">"Respira. Il resto può aspettare."</p>
+                                <div class="product-details">
+                                    <div class="detail-item"><strong>Colore:</strong> Grigio-lilla glossy</div>
+                                    <div class="detail-item"><strong>Effetto:</strong> Levigante + leggermente blur</div>
+                                    <div class="detail-item"><strong>Finish:</strong> Soft gloss, non troppo brillante</div>
+                                    <div class="detail-item"><strong>Attivi:</strong> Ingredienti calmanti/lenitivi</div>
+                                </div>
+                                <div class="product-actions">
+                                    <span class="product-price">€ 19.00</span>
+                                    <button class="add-to-cart-btn" data-id="anxiety" data-name="CALM DOWN" data-price="19.00" data-img="asset/img/4 anxiety.jpeg">Aggiungi al Carrello</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <img src="asset/img/logo drop.png" alt="DROP Logo" class="footer-logo-img">
+            <p>&copy; 2026 DROP Cosmetics. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cart-overlay" class="cart-overlay"></div>
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h2>Il Tuo Carrello</h2>
+            <button id="close-cart" class="close-cart">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items injected via JS -->
+            <p class="empty-cart-msg">Il tuo carrello è vuoto.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Totale:</span>
+                <span id="cart-total-price">€ 0.00</span>
+            </div>
+            <button class="btn-primary checkout-btn" onclick="window.location.href='checkout.html'">Vai alla Cassa</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | DROP</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { padding-top: 100px; }
+        .checkout-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            padding: 0 5%;
+        }
+        @media (max-width: 900px) {
+            .checkout-container { grid-template-columns: 1fr; }
+        }
+        .form-section, .summary-section {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+        .input-group { margin-bottom: 20px; }
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.8);
+            font-family: var(--font-body);
+            font-size: 16px;
+        }
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--brand-lilac);
+            box-shadow: 0 0 0 3px rgba(227, 154, 255, 0.2);
+        }
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .payment-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .payment-method {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.2s;
+            background: rgba(255,255,255,0.5);
+        }
+        .payment-method:hover { border-color: var(--brand-lilac); }
+        .payment-method input { margin-right: 15px; transform: scale(1.2); }
+        .payment-method.active {
+            border-color: var(--brand-lilac);
+            background: rgba(227, 154, 255, 0.1);
+        }
+        
+        /* Summary Section */
+        .summary-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .summary-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+        .summary-details { flex-grow: 1; }
+        .summary-title { font-weight: 700; color: var(--text-primary); }
+        .summary-qty { color: var(--text-secondary); font-size: 14px; }
+        .summary-price { font-weight: 700; color: var(--brand-lilac); }
+        
+        .divider {
+            height: 1px;
+            background: rgba(0,0,0,0.1);
+            margin: 20px 0;
+        }
+        
+        .coupon-section {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .coupon-section input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        .coupon-btn {
+            background: var(--text-primary);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .coupon-msg {
+            font-size: 14px;
+            margin-top: -10px;
+            margin-bottom: 20px;
+        }
+        .coupon-success { color: #28a745; }
+        .coupon-error { color: #dc3545; }
+        
+        .totals-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+        }
+        .totals-row.grand-total {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(0,0,0,0.1);
+        }
+        
+        .btn-submit {
+            width: 100%;
+            background: var(--brand-lilac);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(227, 154, 255, 0.4);
+        }
+        
+        /* Loading Overlay */
+        .loading-overlay {
+            position: fixed;
+            top:0; left:0; width:100%; height:100%;
+            background: rgba(255,255,255,0.9);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s;
+        }
+        .loading-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid var(--glass-border);
+            border-top-color: var(--brand-lilac);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    
+    <header class="glass-header">
+        <div class="container nav-container">
+            <a href="index.html" class="logo-link"><img src="asset/img/logo drop.png" alt="DROP Logo" class="logo-img"></a>
+        </div>
+    </header>
+
+    <div class="checkout-container">
+        <!-- Form Section -->
+        <div class="form-section">
+            <h2 class="section-title">Dati di Spedizione</h2>
+            <form id="checkout-form">
+                <div class="input-group">
+                    <label>Email *</label>
+                    <input type="email" required placeholder="tu@email.com">
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Nome *</label>
+                        <input type="text" required placeholder="Mario">
+                    </div>
+                    <div class="input-group">
+                        <label>Cognome *</label>
+                        <input type="text" required placeholder="Rossi">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Indirizzo *</label>
+                    <input type="text" required placeholder="Via Roma, 123">
+                </div>
+                <div class="grid-2">
+                    <div class="input-group">
+                        <label>Città *</label>
+                        <input type="text" required placeholder="Milano">
+                    </div>
+                    <div class="input-group">
+                        <label>CAP *</label>
+                        <input type="text" required placeholder="20100">
+                    </div>
+                </div>
+                
+                <h2 class="section-title" style="margin-top: 40px;">Metodo di Pagamento</h2>
+                <div class="payment-methods">
+                    <label class="payment-method active">
+                        <input type="radio" name="payment" value="card" checked>
+                        <span>💳 Carta di Credito / Debito</span>
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="paypal">
+                        <span>🅿️ PayPal</span>
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="payment" value="apple">
+                        <span>🍎 Apple Pay</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn-submit">Completa l'Acquisto</button>
+            </form>
+        </div>
+        
+        <!-- Summary Section -->
+        <div class="summary-section">
+            <h2 class="section-title">Riepilogo Ordine</h2>
+            <div id="checkout-items">
+                <!-- Injected via JS -->
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="coupon-section">
+                <input type="text" id="coupon-input" placeholder="Codice Sconto (es. DROP10)">
+                <button class="coupon-btn" id="apply-coupon">Applica</button>
+            </div>
+            <div id="coupon-msg" class="coupon-msg"></div>
+            
+            <div class="totals-row">
+                <span>Subtotale</span>
+                <span id="subtotal">€ 0.00</span>
+            </div>
+            <div class="totals-row">
+                <span>Spedizione</span>
+                <span>Gratis</span>
+            </div>
+            <div class="totals-row" id="discount-row" style="display: none; color: #28a745;">
+                <span>Sconto (10%)</span>
+                <span id="discount-amount">- € 0.00</span>
+            </div>
+            <div class="totals-row grand-total">
+                <span>Totale</span>
+                <span id="grand-total">€ 0.00</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="loading-overlay" id="loading-overlay">
+        <div class="spinner"></div>
+        <h2>Elaborazione ordine in corso...</h2>
+        <p>Preparati ad accendere le tue emozioni.</p>
+    </div>
+
+    <script src="checkout.js"></script>
+</body>
+</html>
